@@ -54,10 +54,13 @@ sudo ${base_dir}/tmp/php80/php/bin/pear config-get php_dir
 sudo ${base_dir}/tmp/php80/php/bin/pecl channel-update pecl.php.net
 sudo ${base_dir}/tmp/php80/php/bin/pecl install zendopcache
 sudo ${base_dir}/tmp/php80/php/bin/pecl install redis
+sudo ${base_dir}/tmp/php80/php/bin/pecl install libsodium
 sudo ${base_dir}/tmp/php80/php/bin/pear install fileinfo
 
 echo "memory_limit=1G" > ${base_dir}/tmp/php80/php/lib/php.ini
 echo "opcache.enable_cli = 'On'" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "extension=redis.so" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "extension=sodium.so" >> ${base_dir}/tmp/php80/php/lib/php.ini
 echo "extension=swoole.so" >> ${base_dir}/tmp/php80/php/lib/php.ini
 echo "swoole.use_shortname = 'Off'" >> ${base_dir}/tmp/php80/php/lib/php.ini
 
