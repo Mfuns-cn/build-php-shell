@@ -8,7 +8,9 @@ sudo apt install git wget autoconf automake bison build-essential curl flex \
   libreadline-dev libsqlite3-dev libzip-dev libzip5 nginx openssl \
   pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev
 
-rm -rf "${base_dir}/tmp/php80"
+sudo rm -rf "${base_dir}/tmp/php80"
+sudo rm -rf /tmp/pecl/install
+sudo rm -rf /tmp/pear/install
 mkdir -p "${base_dir}/tmp/php80"
 cd "${base_dir}/tmp/php80" || exit
 wget https://www.php.net/distributions/php-8.0.15.tar.gz
@@ -52,10 +54,9 @@ sudo ${base_dir}/tmp/php80/php/bin/php go-pear.phar
 sudo ${base_dir}/tmp/php80/php/bin/pear config-get php_dir
 
 sudo ${base_dir}/tmp/php80/php/bin/pecl channel-update pecl.php.net
-sudo ${base_dir}/tmp/php80/php/bin/pecl install zendopcache
+#sudo ${base_dir}/tmp/php80/php/bin/pecl install zendopcache
 sudo ${base_dir}/tmp/php80/php/bin/pecl install redis
 sudo ${base_dir}/tmp/php80/php/bin/pecl install libsodium
-sudo ${base_dir}/tmp/php80/php/bin/pear install fileinfo
 
 echo "memory_limit=1G" > ${base_dir}/tmp/php80/php/lib/php.ini
 echo "opcache.enable_cli = 'On'" >> ${base_dir}/tmp/php80/php/lib/php.ini

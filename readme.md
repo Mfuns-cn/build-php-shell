@@ -4,13 +4,13 @@
 适用环境: ubuntu 20.04
 
 ## PHP 8.0 with Swoole
-* ``bash php-80.sh`` 一路回车即可
+* ``sudo bash php-80.sh`` 一路回车即可
 * 请自行将所需php与composer绑定到环境变量
 * PHP 位置 ./tmp/phpxx/php/bin/php
 * Composer 位置 ./tmp/phpxx/composer.phar
 
 ## Set PHP 8.0 Env
-* ``bash setenv_php80.sh`` 
+* ``sudo bash setenv_php80.sh`` 
 * 只软连接了 php 与 composer 俩个必要命令
 
 
