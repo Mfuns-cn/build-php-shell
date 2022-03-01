@@ -88,7 +88,7 @@ ${base_dir}/tmp/php80/php/bin/php --ri swoole
 ${base_dir}/tmp/php80/php/bin/php --ri yasd
 
 cd ${base_dir}/tmp/php80 || exit
-wget https://github.com/composer/composer/releases/download/2.2.6/composer.phar
+wget https://mirrors.aliyun.com/composer/composer.phar
 ${base_dir}/tmp/php80/php/bin/php composer.phar
 
 echo -e "\033[42;37m Build Completed :).\033[0m\n"
