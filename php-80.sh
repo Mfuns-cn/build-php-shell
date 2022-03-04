@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install git wget autoconf automake bison build-essential curl flex \
   libtool libssl-dev libcurl4-openssl-dev libxml2-dev libreadline8 \
   libreadline-dev libsqlite3-dev libzip-dev libzip5 nginx openssl \
-  pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev
+  pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev
 
 sudo apt install libboost-all-dev
 sudo rm -rf "${base_dir}/tmp/php80"
@@ -88,7 +88,7 @@ ${base_dir}/tmp/php80/php/bin/php --ri swoole
 ${base_dir}/tmp/php80/php/bin/php --ri yasd
 
 cd ${base_dir}/tmp/php80 || exit
-wget https://github.com/composer/composer/releases/download/2.2.6/composer.phar
+wget https://mirrors.aliyun.com/composer/composer.phar
 ${base_dir}/tmp/php80/php/bin/php composer.phar
 
 echo -e "\033[42;37m Build Completed :).\033[0m\n"
