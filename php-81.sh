@@ -41,6 +41,7 @@ cd "php-8.1.3" || exit
 make -j 12
 make install
 cp php.ini-development ${base_dir}/tmp/php81/php/lib/php.ini
+
 cd "${base_dir}/tmp/php81" || exit
 wget https://github.com/swoole/swoole-src/archive/refs/tags/v4.8.7.zip
 unzip v4.8.7.zip

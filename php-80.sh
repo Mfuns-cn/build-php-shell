@@ -41,10 +41,11 @@ cd "php-8.0.15" || exit
 make -j 12
 make install
 cp php.ini-development ${base_dir}/tmp/php80/php/lib/php.ini
+
 cd "${base_dir}/tmp/php80" || exit
-wget https://github.com/swoole/swoole-src/archive/v4.6.7.tar.gz
-tar -xzvf v4.6.7.tar.gz
-cd "swoole-src-4.6.7" || exit
+wget https://github.com/swoole/swoole-src/archive/refs/tags/v4.8.7.zip
+unzip v4.8.7.zip
+cd "swoole-src-4.8.7" || exit
 "${base_dir}"/tmp/php80/php/bin/phpize
 ./configure --enable-openssl --enable-http2 --enable-swoole-curl --enable-swoole-json --with-php-config=${base_dir}/tmp/php80/php/bin/php-config
 make -s -j 12
@@ -81,6 +82,14 @@ echo "zend_extension=yasd" >> ${base_dir}/tmp/php80/php/lib/php.ini
 echo "yasd.debug_mode=remote" >> ${base_dir}/tmp/php80/php/lib/php.ini
 echo "yasd.remote_host=127.0.0.1" >> ${base_dir}/tmp/php80/php/lib/php.ini
 echo "yasd.remote_port=9000" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "zend_extension=${base_dir}/swoole_tracker80.so" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "apm.enable=1" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "apm.sampling_rate=100" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "apm.enable_memcheck=1" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "tracker.enable_malloc_hook=1" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "tracker.sampling_rate=100" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "tracker.enable_memcheck=1" >> ${base_dir}/tmp/php80/php/lib/php.ini
+echo "tracker.enable=0" >> ${base_dir}/tmp/php80/php/lib/php.ini
 
 ${base_dir}/tmp/php80/php/bin/php -v
 ${base_dir}/tmp/php80/php/bin/php -m
