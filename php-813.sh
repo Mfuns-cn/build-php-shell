@@ -14,9 +14,9 @@ sudo rm -rf /tmp/pecl/install
 sudo rm -rf /tmp/pear/install
 mkdir -p "${base_dir}/tmp/php81"
 cd "${base_dir}/tmp/php81" || exit
-wget https://www.php.net/distributions/php-8.1.0.tar.gz
-tar -xzvf php-8.1.0.tar.gz
-cd "php-8.1.0" || exit
+wget https://www.php.net/distributions/php-8.1.3.tar.gz
+tar -xzvf php-8.1.3.tar.gz
+cd "php-8.1.3" || exit
 ./configure --prefix=${base_dir}/tmp/php81/php \
      --enable-mysqlnd \
      --with-pdo-mysql \
