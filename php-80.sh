@@ -9,7 +9,7 @@ sudo apt install git wget autoconf automake bison build-essential curl flex \
   libreadline-dev libsqlite3-dev libzip-dev libzip5 nginx openssl \
   pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev
 
-sudo apt install libboost-all-dev
+sudo apt install libboost-all-dev fswatch
 
 echo "删除旧环境"
 
