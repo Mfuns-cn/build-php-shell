@@ -44,7 +44,7 @@ cd "php-8.0.15" || exit
      --with-openssl \
      --enable-pcntl \
      --with-readline
-make -j 12
+make -j $(nproc)
 make install
 cp php.ini-development ${base_dir}/tmp/php80/php/lib/php.ini
 
@@ -55,7 +55,7 @@ unzip v4.8.7.zip
 cd "swoole-src-4.8.7" || exit
 "${base_dir}"/tmp/php80/php/bin/phpize
 ./configure --enable-openssl --enable-http2 --enable-swoole-curl --enable-swoole-json --with-php-config=${base_dir}/tmp/php80/php/bin/php-config
-make -s -j 12
+make -s -j $(nproc)
 make install
 
 echo "开始编译 yasd debuger"
@@ -68,7 +68,7 @@ cd yasd-0.3.9
 "${base_dir}"/tmp/php80/php/bin/phpize && \
 ./configure --with-php-config=${base_dir}/tmp/php80/php/bin/php-config && \
 make clean && \
-make && \
+make -j $(nproc) && \
 make install
 
 echo "开始初始化 pecl"
