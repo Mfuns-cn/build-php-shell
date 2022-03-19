@@ -7,7 +7,8 @@ sudo apt update
 sudo apt install git wget autoconf automake bison build-essential curl flex \
   libtool libssl-dev libcurl4-openssl-dev libxml2-dev libreadline8 \
   libreadline-dev libsqlite3-dev libzip-dev nginx openssl \
-  pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev
+  pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev \
+  unzip \
 
 sudo apt install libboost-all-dev fswatch
 
