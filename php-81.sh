@@ -6,7 +6,8 @@ sudo apt update
 sudo apt install git wget autoconf automake bison build-essential curl flex \
   libtool libssl-dev libcurl4-openssl-dev libxml2-dev libreadline8 \
   libreadline-dev libsqlite3-dev libzip-dev libzip5 nginx openssl \
-  pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev
+  pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev \
+  unzip
 
 sudo apt install libboost-all-dev
 sudo rm -rf "${base_dir}/tmp/php81"
@@ -18,7 +19,7 @@ wget https://www.php.net/distributions/php-8.1.0.tar.gz
 tar -xzvf php-8.1.0.tar.gz
 cd "php-8.1.0" || exit
 ./configure --prefix=${base_dir}/tmp/php81/php \
-     --enable-mysqlnd \
+    --enable-mysqlnd \
      --with-pdo-mysql \
      --with-pdo-mysql=mysqlnd \
      --enable-bcmath \
