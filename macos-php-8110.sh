@@ -46,7 +46,7 @@ cd "$(pwd)/macos/php81" || exit
 wget https://github.com/swoole/swoole-src/archive/refs/tags/v4.8.7.zip
 unzip v4.8.7.zip
 cd "swoole-src-4.8.7" || exit
-"${base_dir}"/tmp/php81/php/bin/phpize
+"${pwd}"/macos/php81/php/bin/phpize
 # shellcheck disable=SC2086
 # shellcheck disable=SC2046
 ln -s $(brew --prefix pcre2)/include/pcre2.h "$(pwd)"/macos/php81/php/include/php/ext/pcre/pcre2.h
@@ -66,11 +66,11 @@ make install
 export PATH=$(pwd)"/macos/php81/php/bin:$PATH"
 
 wget http://pear.php.net/go-pear.phar
-sudo php go-pear.phar
-sudo pear config-get php_dir
+sudo $(pwd)/macos/php81/php/bin/php go-pear.phar
+sudo $(pwd)/macos/php81/php/bin/pear config-get php_dir
 
-sudo pecl channel-update pecl.php.net
-sudo pecl install redis
+sudo $(pwd)/macos/php81/php/bin/pecl channel-update pecl.php.net
+sudo $(pwd)/macos/php81/php/bin/pecl install redis
 
 echo "memory_limit=1G" >> $(pwd)/macos/php81/php/lib/php.ini
 echo "opcache.enable_cli = 'On'" >> $(pwd)/macos/php81/php/lib/php.ini
@@ -78,9 +78,9 @@ echo "extension=redis.so" >> $(pwd)/macos/php81/php/lib/php.ini
 echo "extension=swoole.so" >> $(pwd)/macos/php81/php/lib/php.ini
 echo "swoole.use_shortname = 'Off'" >> $(pwd)/macos/tmp/php81/php/lib/php.ini
 
-php -v
-php -m
-php --ri swoole
+sudo $(pwd)/macos/php81/php/bin/php -v
+sudo $(pwd)/macos/php81/php/bin/php -m
+sudo $(pwd)/macos/php81/php/bin/php --ri swoole
 
 cd $(pwd)/macos/php81 || exit
 wget https://mirrors.aliyun.com/composer/composer.phar
