@@ -43,6 +43,8 @@ make -j $(sysctl -n hw.ncpu)
 make install
 
 cp php.ini-development ${base_dir}/macos/php81/php/lib/php.ini
+export PATH=${base_dir}"/macos/php81/php/bin:$PATH"
+
 cd "${base_dir}/macos/php81" || exit
 wget https://github.com/swoole/swoole-src/archive/refs/tags/v4.8.7.zip
 unzip v4.8.7.zip
@@ -64,28 +66,28 @@ ln -s $(brew --prefix pcre2)/include/pcre2.h "${base_dir}"/macos/php81/php/inclu
 make -j $(sysctl -n hw.ncpu)
 make install
 
-export PATH=${base_dir}"/macos/php81/php/bin:$PATH"
-
+# shellcheck disable=SC2164
+cd "${base_dir}"/macos/php81
 wget http://pear.php.net/go-pear.phar
 sudo ${base_dir}/macos/php81/php/bin/php go-pear.phar
 sudo ${base_dir}/macos/php81/php/bin/pear config-get php_dir
 
 sudo ${base_dir}/macos/php81/php/bin/pecl channel-update pecl.php.net
 sudo ${base_dir}/macos/php81/php/bin/pecl install redis
-sudo ${base_dir}/macos/php81/php/bin/pecl install libsodium
 
-echo "memory_limit=1G" >> ${base_dir}/macos/php81/php/lib/php.ini
-echo "opcache.enable_cli = 'On'" >> ${base_dir}/macos/php81/php/lib/php.ini
-echo "extension=redis.so" >> ${base_dir}/macos/php81/php/lib/php.ini
-echo "extension=swoole.so" >> ${base_dir}/macos/php81/php/lib/php.ini
-echo "swoole.use_shortname = 'Off'" >> ${base_dir}/macos/php81/php/lib/php.ini
+# shellcheck disable=SC2129
+echo "memory_limit=1G" >> "${base_dir}"/macos/php81/php/lib/php.ini
+echo "opcache.enable_cli = 'On'" >> "${base_dir}"/macos/php81/php/lib/php.ini
+echo "extension=redis.so" >> "${base_dir}"/macos/php81/php/lib/php.ini
+echo "extension=swoole.so" >> "${base_dir}"/macos/php81/php/lib/php.ini
+echo "swoole.use_shortname = 'Off'" >> "${base_dir}"/macos/php81/php/lib/php.ini
 
-${base_dir}/macos/php81/php/bin/php -v
-${base_dir}/macos/php81/php/bin/php -m
-${base_dir}/macos/php81/php/bin/php --ri swoole
+"${base_dir}"/macos/php81/php/bin/php -v
+"${base_dir}"/macos/php81/php/bin/php -m
+"${base_dir}"/macos/php81/php/bin/php --ri swoole
 
 cd ${base_dir}/macos/php81 || exit
 wget https://mirrors.aliyun.com/composer/composer.phar
-${base_dir}/macos/php81/php/bin/php composer.phar
+"${base_dir}"/macos/php81/php/bin/php composer.phar
 
 echo -e "\033[42;37m Build Completed :).\033[0m\n"
