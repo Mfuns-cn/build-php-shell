@@ -1,11 +1,12 @@
-echo "Mfuns build php with swoole and more extensions on ubuntu-2004"
+echo "Mfuns build php with swoole and more extensions on ubuntu-22xx"
 
 base_dir=$(cd "$(dirname "$0")";pwd)
 
 sudo apt update
+sudo apt upgrade
 sudo apt install git wget autoconf automake bison build-essential curl flex \
   libtool libssl-dev libcurl4-openssl-dev libxml2-dev libreadline8 \
-  libreadline-dev libsqlite3-dev libzip-dev libzip5 nginx openssl \
+  libreadline-dev libsqlite3-dev libzip-dev openssl \
   pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev \
   unzip
 
@@ -39,8 +40,8 @@ cd "php-8.1.3" || exit
      --with-openssl \
      --enable-pcntl \
      --with-readline
-make -j 12
-make install
+make -j 12  || exit
+make install  || exit
 cp php.ini-development ${base_dir}/tmp/php81/php/lib/php.ini
 
 cd "${base_dir}/tmp/php81" || exit
@@ -57,7 +58,7 @@ sudo ${base_dir}/tmp/php81/php/bin/php go-pear.phar
 sudo ${base_dir}/tmp/php81/php/bin/pear config-get php_dir
 
 sudo ${base_dir}/tmp/php81/php/bin/pecl channel-update pecl.php.net
-#sudo ${base_dir}/tmp/php81/php/bin/pecl install zendopca≈çche
+#sudo ${base_dir}/tmp/php81/php/bin/pecl install zendopcache
 sudo ${base_dir}/tmp/php81/php/bin/pecl install redis
 sudo ${base_dir}/tmp/php81/php/bin/pecl install libsodium
 
