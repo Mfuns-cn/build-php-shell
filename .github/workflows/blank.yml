@@ -24,4 +24,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run build
-        run: sudo bash php-80.sh
+        run: sudo bash php-8212-v5.sh
