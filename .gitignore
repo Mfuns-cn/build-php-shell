@@ -1,3 +1,5 @@
 tmp/
 .idea/
 macos/
+macos-build/
+win-build/
