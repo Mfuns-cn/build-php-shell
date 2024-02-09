@@ -1,4 +1,4 @@
-# 构建适用于 Swoole Hyperf 的 PHP 开发环境
+# 快速构建适用于 Swoole Hyperf 的 PHP 开发环境
 
 [//]: # (使用世界上最好的语言改变世界)
 
@@ -59,3 +59,15 @@
 [//]: # (* ``sudo bash setenv_php81.sh``)
 
 
+## 快速开始 
+* PHP 8.1.27 
+* Swoole 5.1.2 
+* Composer latest
+```shell
+sudo bash ./php-81.sh
+sudo bash ./setenv_php81.sh
+```
+```shell
+sudo bash ./macos-php-81.sh
+sudo bash ./setenv_macos_php81.sh
+```
