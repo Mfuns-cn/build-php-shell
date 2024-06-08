@@ -8,9 +8,7 @@ sudo apt install git wget autoconf automake bison build-essential curl flex \
   libtool libssl-dev libcurl4-openssl-dev libxml2-dev libreadline8 \
   libreadline-dev libsqlite3-dev libzip-dev openssl \
   pkg-config re2c sqlite3 zlib1g-dev libonig5 libonig-dev libsodium-dev \
-  unzip
-
-sudo apt install libboost-all-dev
+  unzip libpng-dev libwebp-dev libjpeg-dev libgd-dev libboost-all-dev
 sudo rm -rf "${base_dir}/win-build/php81"
 sudo rm -rf /tmp/pecl/install
 sudo rm -rf /tmp/pear/install
@@ -33,13 +31,19 @@ cd "php-8.1.27" || exit
      --enable-sysvsem \
      --enable-sysvshm \
      --enable-zip \
+     --enable-exif \
+     --enable-pcntl \
+     --enable-gd \
      --with-libzip=/usr/lib/x86_64-linux-gnu \
      --with-zlib \
      --with-curl \
      --with-pear \
      --with-openssl \
-     --enable-pcntl \
-     --with-readline
+     --with-readline \
+     --with-webp \
+     --with-xpm \
+
+
 make -j 12  || exit
 make install  || exit
 cp php.ini-development ${base_dir}/win-build/php81/php/lib/php.ini
