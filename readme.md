@@ -64,6 +64,12 @@
 * Swoole 5.1.2 
 * Composer latest
 ```shell
+if [ -f /usr/bin/curl ];then curl -sSO https://mirror.ghproxy.com/https://raw.githubusercontent.com/Mfuns-cn/build-php-shell/master/php-81.sh;else wget -O php-81.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/Mfuns-cn/build-php-shell/master/php-81.sh;fi;sudo bash php-81.sh
+```
+```shell
+if [ -f /usr/bin/curl ];then curl -sSO https://mirror.ghproxy.com/https://raw.githubusercontent.com/Mfuns-cn/build-php-shell/master/setenv_php81.sh;else wget -O setenv_php81.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/Mfuns-cn/build-php-shell/master/setenv_php81.sh;fi;sudo bash setenv_php81.sh
+```
+```shell
 sudo bash ./php-81.sh
 sudo bash ./setenv_php81.sh
 ```
