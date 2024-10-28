@@ -49,7 +49,7 @@ make install  || exit
 cp php.ini-development ${base_dir}/win-build/php81/php/lib/php.ini
 
 cd "${base_dir}/win-build/php81" || exit
-wget https://mirror.ghproxy.com/https://github.com/swoole/swoole-src/archive/refs/tags/v5.1.2.zip
+wget https://ghp.ci/https://github.com/swoole/swoole-src/archive/refs/tags/v5.1.2.zip
 unzip v5.1.2.zip
 cd "swoole-src-5.1.2" || exit
 "${base_dir}"/win-build/php81/php/bin/phpize
