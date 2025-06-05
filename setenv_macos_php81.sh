@@ -1,7 +1,7 @@
 echo "Set environment variables for PHP 8.1"
 base_dir=$(pwd)
 
-sudo ln -s -f ${base_dir}/macos-build/php81/php/bin/php /usr/local/bin/php
-sudo ln -s -f ${base_dir}/macos-build/php81/composer.phar /usr/local/bin/composer
+sudo ln -s -f ${base_dir}/build-php-shell/macos-build/php81/php/bin/php /usr/local/bin/php
+sudo ln -s -f ${base_dir}/build-php-shell/macos-build/php81/composer.phar /usr/local/bin/composer
 sudo chmod +x /usr/local/bin/composer
 echo "Done"
